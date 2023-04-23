@@ -55,6 +55,7 @@ body
   margin: 0;
   font-size: 16px;
   line-height: 26px;
+  font-weight: 400;
   font-family: var(--font-face);
   letter-spacing: 0.5px;
   background-color: #fff;
@@ -154,7 +155,156 @@ select:-webkit-autofill:focus {
 .sitenav__link:active {
   opacity: 0.6;
 }
+/* * * BUTTON * * */
+.button {
+  display: inline-block;
+  padding: 0;
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+  background-color: var(--accent-color);
+  color: #fff;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+.button--block {
+  display: flex;
+  width: 100%;
+}
+.button-wide {
+  min-width: 272px;
+}
+.button:hover {
+  background-color: var(--accent-color-hover);
+}
+.button:active {
+  transform: translateY(2px);
+}
+.button__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 20px 24px;
+}
+.button__prepend {
+  margin-right: 16px;
+}
+.button__icon {
+  display: block;
+}
+/*Shopping-Cart-Products */
+.shopping-cart-products {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.shopping-cart-products__item--remove {
+  display: none;
+}
+.shopping-cart-products__item:not(:last-child) {
+  margin-bottom: 16px;
+}
+/* ITEM SHOPPING CART PRODUCTS */
+.item-shopping-cart-products {
+  display: flex;
+  align-items: flex-start;
+}
+.item-shopping-cart-products__img {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  margin-right: 16px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+.item-shopping-cart-products__info {
+  flex-grow: 1;
+  margin-right: 18px;
+  width: 100%;
+  overflow: hidden;
+}
+.item-shopping-cart-products__name {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-transform: capitalize;
+}
+.item-shopping-cart-products__subtotal {
+  color: var(--text-color-dark);
+}
+.item-shopping-cart-products__remove-button {
+  align-self: center;
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  color: #C3CAD9;
+  cursor: pointer;
+}
+.item-shopping-cart-products__remove-button:hover {
+  color: var(--text-color-dark);
+}
+.item-shopping-cart-products__remove-button:active {
+  opacity: 0.6;
+}
+.item-shopping-cart-products__remove-icon {
+  display: block;
+  width: 14px;
+  height: 16px;
+}
+/* -------------- */
+/* SHOPPING CART  */
+/* -------------- */
 
+.shopping-cart {
+  display: flex;
+  flex-direction: column;
+  border-radius: 6px;
+  background-color: #fff;
+}
+.shopping-cart--modal {
+  width: 360px;
+  min-height: 256px;
+  box-shadow: 0px 20px 50px -20px rgba(29, 32, 38, 0.503143);
+}
+.shopping-cart__header {
+  padding: 24px 24px 27px;
+  border-bottom: 1px solid var(--divider-bg);
+}
+.shopping-cart__title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: left;
+  color: var(--text-color-dark);
+}
+.shopping-cart__inner {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 24px;
+}
+.shopping-cart__empty {
+  display: none;
+}
+.shopping-cart--empty .shopping-cart__empty {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+.shopping-cart--empty .shopping-cart__content {
+  display: none;
+}
+.shopping-cart__products {
+  margin-bottom: 24px;
+}
 /* ** MAIN CONTENT ** */
 .main-content
 {
@@ -162,6 +312,7 @@ select:-webkit-autofill:focus {
 }
 /* SITE HEADER */
 .site-header__container {
+  position: relative;
   display: flex;
   align-items: center;
   border-bottom: 1px solid var(--divider-bg);
@@ -202,13 +353,24 @@ select:-webkit-autofill:focus {
   padding: 2px 6px;
   border-radius: 7px;
 }
+.site-header__cart--empty .site-header__cart-product-count {
+  display: none;
+}
 .site-header__cart-icon {
   width: 22px;
   height: 20px;
   object-fit: contain;
-
 }
-
+.site-header__cart-modal {
+  display: none;
+}
+.site-header__cart-modal--open {
+  display: block;
+  position: absolute;
+  width: 360px;
+  top: 94px;
+  right: -76px;
+}
 /* Profile Link */
 .site-header__profile-link {
   display: flex;
