@@ -310,6 +310,87 @@ select:-webkit-autofill:focus {
 {
   flex-grow: 1;
 }
+/* IMAGE SHOWCASE */
+.image-showcase__showcase {
+  margin-bottom: 32px;
+}
+.image-showcase__img {
+  display: block;
+  width: 445px;
+  height: 445px;
+  object-fit: cover;
+  border-radius: 60px;
+}
+.image-showcase__thumbnails {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  overflow: auto;
+  padding-bottom: 10px;
+
+/* Foreground, Background */
+scrollbar-color: var(--accent-color) var(--divider-bg);
+}
+
+.image-showcase__thumbnails::-webkit-scrollbar {
+  width: 10px; /* Mostly for vertical scrollbars */
+  height: 10px; /* Mostly for horizontal scrollbars */
+}
+.image-showcase__thumbnails::-webkit-scrollbar-thumb { /* Foreground */
+  border-radius: 5px;
+  background: var(--accent-color);
+}
+.image-showcase__thumbnails::-webkit-scrollbar-track { /* Background */
+  border-radius: 5px;
+  background: var(--divider-bg);
+}
+
+
+.image-showcase__thumbnail {
+  flex-shrink: 0;
+}
+.image-showcase__thumbnail:not(:last-child) {
+  margin-right: 31px;
+}
+.image-showcase__thumbnail-button {
+  position: relative;
+  display: block;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  border-radius: 20px;
+}
+.image-showcase__thumbnail-button::after {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background-color: rgba(255, 255, 255, 255);
+  border-radius: 20px;
+}
+.image-showcase__thumbnail-button:hover::after {
+  opacity: 0.5;
+}
+.image-showcase__thumbnail-button:active {
+  opacity: 0.6;
+}
+.image-showcase__thumbnail--active .image-showcase__thumbnail-button::after {
+  opacity: 0.75;
+  border: 2px solid var(--accent-color);
+}
+.image-showcase__thumnail-img {
+  display: block;
+  width: 88px;
+  height: 88px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
 /* SITE HEADER */
 .site-header__container {
   position: relative;
@@ -389,4 +470,25 @@ select:-webkit-autofill:focus {
 .site-header__profile-avatar {
   width: 50px;
   height: 50px;
+}
+/* PRODUCT-PAGE */
+.product-page {
+  padding-top: 90px;
+  padding-bottom: 132px;
+}
+.product-page__container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1063px;
+}
+
+.product-page__gallery {
+  width: 100%;
+  max-width: 445px;
+  margin-right: 48px;
+}
+.product-page__info {
+  width: 100%;
+  max-width: 445px;
+  border: 2px solid gold;
 }
