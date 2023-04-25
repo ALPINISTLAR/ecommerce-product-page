@@ -39,7 +39,7 @@ elsImageShowcaseThumbnailButton.forEach(function (elThumbnailButton) {
 })
 
 
-// LIGHTBOX
+// LIGHTBOX //
 const elLightboxToggler = document.querySelector('.js-lightbox-toggler');
 const elLightbox = document.querySelector('.lightbox');
 const elLightboxClose = document.querySelector('.js-lightbox-close');
