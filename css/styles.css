@@ -312,14 +312,76 @@ select:-webkit-autofill:focus {
 }
 /* IMAGE SHOWCASE */
 .image-showcase__showcase {
+  position: relative;
   margin-bottom: 32px;
 }
+.image-showcase__lightbox-toggle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 0;
+  border: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 60px;
+  background-color: transparent;
+  cursor: zoom-in;
+}
+
+/* IMAGE SHOWCASE CONTROL */
+.image-showcase__control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--text-color-dark);
+}
+.image-showcase__control:hover {
+  color: var(--accent-color);
+}
+.image-showcase__control:active {
+  opacity: 0.6;
+}
+.image-showcase__control-prev {
+  left: -28px;
+}
+.image-showcase__control-next {
+  right: -28px;
+}
+.image-showcase__control-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background-color: #fff;
+  border-radius: 50%;
+}
+.image-showcase__control-icon {
+  display: block;
+  width: 13px;
+  height: 20px;
+}
+
 .image-showcase__img {
   display: block;
   width: 445px;
   height: 445px;
   object-fit: cover;
   border-radius: 60px;
+}
+.image-showcase-lightbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.image-showcase-lightbox .image-showcase__img {
+  width: 550px;
+  height: 550px;
 }
 .image-showcase__thumbnails {
   display: flex;
@@ -329,10 +391,12 @@ select:-webkit-autofill:focus {
   overflow: auto;
   padding-bottom: 10px;
 
-/* Foreground, Background */
-scrollbar-color: var(--accent-color) var(--divider-bg);
+  /* Foreground, Background */
+  scrollbar-color: var(--accent-color) var(--divider-bg);
 }
-
+.image-showcase-lightbox .image-showcase__thumbnails {
+  max-width: 550px;
+}
 .image-showcase__thumbnails::-webkit-scrollbar {
   width: 10px; /* Mostly for vertical scrollbars */
   height: 10px; /* Mostly for horizontal scrollbars */
@@ -389,6 +453,47 @@ scrollbar-color: var(--accent-color) var(--divider-bg);
   height: 88px;
   border-radius: 20px;
   object-fit: cover;
+}
+
+/* LIGHTBOX */
+.lightbox {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  overflow: auto;
+}
+.lightbox--open {
+  display: block;
+}
+.lightbox__inner {
+  max-width: 550px;
+  width: 100%;
+  margin: 90px auto;
+}
+.lightbox__close-button {
+  width: 20px;
+  height: 20px;
+  display: block;
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  color: #D8D8D8;
+  margin-left: auto;
+  margin-bottom: 24px;
+  cursor: pointer;
+}
+.lightbox__close-button:hover {
+  color: var(--accent-color);
+}
+.lightbox__close-button:active {
+  opacity: 0.6;
+}
+.lightbox__close-button-icon {
+  display: block;
+  width: 20px;
+  height: 20px;
 }
 
 /* SITE HEADER */
