@@ -373,6 +373,7 @@ select:-webkit-autofill:focus {
   height: 445px;
   object-fit: cover;
   border-radius: 60px;
+  /* !! (In the design, the large size of the other images was not given, so I was forced to give a large corner-radius.) */
 }
 .image-showcase-lightbox {
   display: flex;
@@ -380,8 +381,8 @@ select:-webkit-autofill:focus {
   align-items: center;
 }
 .image-showcase-lightbox .image-showcase__img {
-  width: 550px;
-  height: 550px;
+  width: 560px;
+  height: 560px;
 }
 .image-showcase__thumbnails {
   display: flex;
