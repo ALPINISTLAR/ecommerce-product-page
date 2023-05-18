@@ -128,15 +128,24 @@ if (elLightboxControlPrev) {
   });
 };
 
+// SHOPPING CART ACTIONS:  Product quantity button;
+const elProductQuantityIncreaseButton = document.querySelector('.js-product-quantity-increase-button');
+const elProductQuantityDecreaseButton = document.querySelector('.js-product-quantity-decrease-button');
+const elProductQuantity = document.querySelector('.product-info__quantity');
 
 
+if (elProductQuantityIncreaseButton) {
+  elProductQuantityIncreaseButton.addEventListener('click', function () {
+    elProductQuantity.textContent = parseInt(elProductQuantity.textContent, 10) + 1;
+  });
+};
 
+if (elProductQuantityDecreaseButton) {
+  elProductQuantityDecreaseButton.addEventListener('click', function () {
+    const quantity = parseInt(elProductQuantity.textContent, 10);
 
-
-
-
-// elsShoppingCartRemoveButton.forEach(function (elRemoveButton) {
-// elRemoveButton.addEventListener('click', function () {
-//   elRemoveButton.closest('.shopping-cart-products__item').classList.add('shopping-cart-products__item--remove');
-// })
-// });
+    if (quantity > 0) {
+      elProductQuantity.textContent = quantity - 1;
+    }
+  });
+};
