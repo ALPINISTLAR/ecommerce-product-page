@@ -149,3 +149,20 @@ if (elProductQuantityDecreaseButton) {
     }
   });
 };
+
+
+const elSitenavOpenButton = document.querySelector('.sitenav-open-button');
+const elSitenavCloseButton = document.querySelector('.sitenav__close-button');
+const elSitenavBg = document.querySelector('.sitenav-bg');
+const elSitenav = document.querySelector('.site-header__sitenav');
+
+elSitenavOpenButton.addEventListener('click', function () {
+  elSitenav.classList.add('site-header__sitenav--open');
+  setTimeout(function () {
+    elSitenavBg.classList.add('sitenav-bg--open');
+  }, 150);
+});
+elSitenavCloseButton.addEventListener('click', function () {
+  elSitenav.classList.remove('site-header__sitenav--open');
+  elSitenavBg.classList.remove('sitenav-bg--open');
+});
