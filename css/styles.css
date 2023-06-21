@@ -465,7 +465,7 @@ select:-webkit-autofill:focus {
   opacity: 0.75;
   border: 2px solid var(--accent-color);
 }
-.image-showcase__thumnail-img {
+.image-showcase__thumbnail-img {
   display: block;
   width: 88px;
   height: 88px;
