@@ -166,3 +166,56 @@ elSitenavCloseButton.addEventListener('click', function () {
   elSitenav.classList.remove('site-header__sitenav--open');
   elSitenavBg.classList.remove('sitenav-bg--open');
 });
+
+
+// IMAGE SHOWCASE MOBILE CONTROL
+const elShowcaseMobileControlPrev = document.querySelector('.js-showcase-mobile-control-prev');
+const elShowcaseMobileControlNext = document.querySelector('.js-showcase-mobile-control-next');
+const elImageShowcaseImgMobile = document.querySelector('.image-showcase__img--mobile');
+
+
+
+if (elShowcaseMobileControlNext) {
+  elShowcaseMobileControlNext.addEventListener('click', function () {
+    // Find active li element
+    const elActiveItem = document.querySelector('.image-showcase__thumbnail--active');
+    // Remove active li element's styles
+    elActiveItem.classList.remove(modifiers.imgThumbnailActive);
+
+    let elNextActiveItemMobile;
+
+    if (elActiveItem.nextElementSibling === null) {
+      elNextActiveItemMobile = elsImageShowcaseThumbnail[0];
+    } else {
+      elNextActiveItemMobile = elActiveItem.nextElementSibling;
+    }
+    elNextActiveItemMobile.classList.add(modifiers.imgThumbnailActive);
+
+    // Update active image src accordingly
+    elImageShowcaseImgMobile.src = elNextActiveItemMobile.children[0].dataset.showcaseImgBig;
+    elImageShowcaseImgMobile.srcset = `${elNextActiveItemMobile.children[0].dataset.showcaseImgBig} 1x, ${elNextActiveItemMobile.children[0].dataset.showcaseImgRetina} 2x`;
+  });
+};
+
+
+if (elShowcaseMobileControlPrev) {
+  elShowcaseMobileControlPrev.addEventListener('click', function () {
+    // Find active li element
+    const elActiveItem = document.querySelector('.image-showcase__thumbnail--active');
+    // Remove active li element's styles
+    elActiveItem.classList.remove(modifiers.imgThumbnailActive);
+
+    let elNextActiveItemMobile;
+
+    if (elActiveItem.previousElementSibling === null) {
+      elNextActiveItemMobile = elsImageShowcaseThumbnail[elsImageShowcaseThumbnail.length - 1];
+    } else {
+      elNextActiveItemMobile = elActiveItem.previousElementSibling;
+    }
+    elNextActiveItemMobile.classList.add(modifiers.imgThumbnailActive);
+
+    // Update active image src accordingly
+    elImageShowcaseImgMobile.src = elNextActiveItemMobile.children[0].dataset.showcaseImgBig;
+    elImageShowcaseImgMobile.srcset = `${elNextActiveItemMobile.children[0].dataset.showcaseImgBig} 1x, ${elNextActiveItemMobile.children[0].dataset.showcaseImgRetina} 2x`;
+  });
+};
